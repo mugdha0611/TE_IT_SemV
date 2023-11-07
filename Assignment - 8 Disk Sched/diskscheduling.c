@@ -7,24 +7,30 @@ int CLOOK();
 
 //SSTF algorithm
 int SSTF(int n, int Req[], int initialhead){
+//n is the number of requests, req[] = storing the requests, initial head = inital position
 	int RQ[100], TotalHeadMovement =0, count =0,i;
 	for(i =0;i<n;i++){
 		RQ[i] = Req[i];
 	}
+	//used to find the request with the minimun seek time
 	while(count !=n){
+		//min is set to 1000 as it becomes easy to find difference which is less
 		int min = 1000,d,index;
 		for(i =0; i<n;i++){
+			//d is the minimum seek time calculated iteratively 
 			d = abs(RQ[i] - initialhead);
+			//if d is less than minimum (initially min = 1000) then change min value ot d and index to i
 			if(min > d){
 				min = d;
 				index = i;
 			}
 		}
-		
+		//prints the movement of head
 		printf("\nMove head from %d to %d , (seek time = %d)",initialhead,RQ[index],min);
+		//calculates total head movement
 		TotalHeadMovement = TotalHeadMovement + min;
 		initialhead = RQ[index];
-		RQ[index] = 1000;
+		RQ[index] = 1000;  //this ensures the once visited request is not considered again
 		count++;
 	}
 	printf("\nTotal Head movement : %d", TotalHeadMovement);
