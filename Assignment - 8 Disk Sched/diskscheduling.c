@@ -62,10 +62,11 @@ int SCAN(int n, int Req[], int initialhead){
 	if(move ==1){
 		for(i =index;i<n;i++){
 			int seek = abs(RQ[i] - initialhead);
-			printf("\nMove head from %d to %d , (seek time = %d)",initialhead,RQ[i],seek);
+			printf("\nMove head from %d to %d , (seek time = %d)\n",initialhead,RQ[i],seek);
 			TotalHeadMovement += seek;
 			initialhead = RQ[i];
 		}
+		TotalHeadMovement += 2*(size - initialhead);
 	
 		for(i =index-1;i>=0;i--){
 			int seek = abs(RQ[i]-initialhead);
@@ -80,9 +81,10 @@ int SCAN(int n, int Req[], int initialhead){
 			TotalHeadMovement +=seek;
 			initialhead = RQ[i];
 		}
+		TotalHeadMovement +=2*initialhead;
 		for(i =index;i<n;i++){
 			int seek = abs(RQ[i] - initialhead);
-			printf("\nMove head from %d to %d , (seek time = %d)",initialhead,RQ[i],seek);
+			printf("\nMove head from %d to %d , (seek time = %d)\n",initialhead,RQ[i],seek);
 			TotalHeadMovement += seek;
 			initialhead = RQ[i];
 		}
