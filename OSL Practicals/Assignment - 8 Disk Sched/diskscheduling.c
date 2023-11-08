@@ -60,8 +60,7 @@ int SCAN(int n, int Req[], int initialhead){
 			break;
 		}
 	}
-
-
+//scan code
 	if(move ==1){//right
 
 		for(i =index;i<n;i++){
