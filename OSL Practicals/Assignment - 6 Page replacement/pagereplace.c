@@ -47,48 +47,36 @@ int main(){
 //function for making a table
 
 void table(int frameSize, int refSize, int hitFlag[], int frame[][refSize])
-{
-
-    int hitCnt = 0;
+{   int hitCnt = 0;
     int missCnt = 0;
-
     for (int i = 0; i < refSize; i++)
     {
         printf("-------");
     }
     printf("\n|");
-    for (int i = 0; i < refSize; i++)
-    {
-        if (hitFlag[i])
-        {
+    for (int i = 0; i < refSize; i++){
+        if (hitFlag[i]){
             printf(" HIT  |");
             hitCnt++;
         }
-        else
-        {
+        else{
             printf(" MISS |");
             missCnt++;
         }
     }
     printf("\n");
-    for (int i = 0; i < refSize; i++)
-    {
+    for (int i = 0; i < refSize; i++){
         printf("-------");
     }
     printf("\n");
-
-    for (int j = 0; j < frameSize; j++)
-    {
+    for (int j = 0; j < frameSize; j++){
         printf("|");
-        for (int i = 0; i < refSize; i++)
-        {
+        for (int i = 0; i < refSize; i++){
             printf("   %d  |", frame[j][i]);
         }
         printf("\n");
     }
-
-    for (int i = 0; i < refSize; i++)
-    {
+    for (int i = 0; i < refSize; i++){
         printf("-------");
     }
     printf("\n\n");
@@ -106,14 +94,12 @@ void fifo(int frameSize, int ref[], int n){
 			frame[i][j] = 0;
 		}
 	}
-	
 	//create a flag array and initilising it to 0
 	//0=miss ,1 = hit
 	int hitFlag[n];
 	for(int i=0;i<n;i++){
 		hitFlag[i] = 0;
 	}
-	
 	//fifo logic
 	int j=0;
 	for(int i = 0;i<n;i++){
